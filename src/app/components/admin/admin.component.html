@@ -1,0 +1,173 @@
+<div class="page-container">
+  <div class="main-content">
+    <div class="gallery">
+      <div class="search-box">
+        <mat-icon class="mat-icon-size" matSuffix>search</mat-icon> 
+        <mat-form-field  class="search-bar" floatLabel="never" appearance="fill">
+          <input type="text" placeholder="Filter by desk, operator" matInput [formControl]="searchControl" #search /> 
+        </mat-form-field> 
+      </div>
+      <div class="list-container">
+        <ng-container *ngIf="operatorDetails.length">
+          <div *ngFor="let logDatum of operatorDetails let i = index"
+            [ngClass]="{'ws-mat-primary-lite-background' : logDatum._id === selectedLog?._id}" (click)=loadValue(i)>
+            <div class="list-item-individual">
+              <div class="list-items"> <span class="name-initials-image ws-mat-primary-text ws-mat-primary-lite-background
+              ">{{getNameInitials(logDatum.operator)}}
+                </span>
+
+                <span class="padding-4">{{logDatum.operator}}</span></div>
+              <mat-icon>delete</mat-icon>
+            </div>
+
+
+
+
+
+
+
+            <mat-divider></mat-divider>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+    <div class="form ws-mat-primary-lite-background">
+
+
+      <div class="form-container" *ngIf="selectedLog">
+        <div class="form-subMenu">
+          <div class="system-report-heading">
+            <mat-icon class="padding-4">calendar_today</mat-icon>
+            <span class="ws-mat-primary-text mat-h2 mat-title margin-zero padding-4">Admin Data</span>
+          </div>
+          <div class="icons ">
+            <button mat-icon-button aria-label="Home button">
+              <mat-icon>refresh</mat-icon>
+            </button>
+            <ng-container *ngIf="!newEntry">
+              <button mat-icon-button aria-label="Home button" (click)="newDataEntry()">
+                <mat-icon>add</mat-icon>
+              </button>
+            </ng-container>
+            <ng-container *ngIf="newEntry">
+              <button mat-icon-button aria-label="Home button" (click)="newDataEntry()">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </ng-container>
+
+            <button mat-icon-button aria-label="Home button">
+              <mat-icon>save</mat-icon>
+            </button>
+          </div>
+        </div>
+
+
+        <div *ngIf="!newEntry">
+          <mat-form-field appearance="fill">
+            <mat-label>Operator</mat-label>
+            <input matInput placeholder="Operator" [(ngModel)]="selectedLog.operator" name="batchId" />
+          </mat-form-field>
+          <div>Desk No</div>
+          <mat-chip-list>
+            <mat-chip color="primary" [removable]="true">
+              {{selectedLog.deskNo}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+
+          <span>Suggestions: </span>
+          <mat-chip-list>
+            <mat-chip>
+              DeskNo 4
+              <mat-icon matChipRemove>add_circle</mat-icon>
+            </mat-chip>
+            <mat-chip>
+              DeskNo 7
+              <mat-icon matChipRemove>add_circle</mat-icon>
+            </mat-chip>
+            <mat-chip>
+              DeskNo 3
+              <mat-icon matChipRemove>add_circle</mat-icon>
+            </mat-chip>
+            <mat-chip>
+              DeskNo 2
+              <mat-icon matChipRemove>add_circle</mat-icon>
+            </mat-chip>
+            <mat-chip>
+              DeskNo 1
+              <mat-icon matChipRemove>add_circle</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+
+
+
+          <mat-form-field appearance="fill">
+            <mat-label>User Roles</mat-label>
+            <input matInput placeholder="User Roles" [(ngModel)]="selectedLog.userRole" name="shipper" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Default Desk</mat-label>
+            <input matInput placeholder="Default Desk" [(ngModel)]="selectedLog.defaultDesk" name="shipper" />
+          </mat-form-field>
+        </div>
+
+        <div *ngIf="newEntry">
+          <mat-form-field appearance="fill">
+            <mat-label>Operator</mat-label>
+            <input matInput placeholder="Operator" [value]="newOperator?.operator" name="batchId" />
+          </mat-form-field>
+          <div>Desk No</div>
+          <mat-chip-list>
+            <mat-chip color="primary" [removable]="true">
+              {{newOperator?.deskNo}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+
+          <span>Suggestions: </span>
+          <mat-chip-list>
+            <mat-chip>
+              DeskNo 4
+              <mat-icon matChipRemove>add_circle</mat-icon>
+            </mat-chip>
+            <mat-chip>
+              DeskNo 7
+              <mat-icon matChipRemove>add_circle</mat-icon>
+            </mat-chip>
+            <mat-chip>
+              DeskNo 3
+              <mat-icon matChipRemove>add_circle</mat-icon>
+            </mat-chip>
+            <mat-chip>
+              DeskNo 2
+              <mat-icon matChipRemove>add_circle</mat-icon>
+            </mat-chip>
+            <mat-chip>
+              DeskNo 1
+              <mat-icon matChipRemove>add_circle</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+
+
+
+          <mat-form-field appearance="fill">
+            <mat-label>User Roles</mat-label>
+            <input matInput placeholder="User Roles" [value]="newOperator?.userRole" name="shipper" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Default Desk</mat-label>
+            <input matInput placeholder="Default Desk" [value]="newOperator?.defaultDesk" name="shipper" />
+          </mat-form-field>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

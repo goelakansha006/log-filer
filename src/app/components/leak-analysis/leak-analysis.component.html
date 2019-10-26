@@ -1,0 +1,153 @@
+<div class="page-container">
+
+  <div class="main-content">
+    <div class="gallery">
+      <div class="search-box">
+        <mat-icon class="mat-icon-size" matSuffix>search</mat-icon> 
+        <mat-form-field  class="search-bar" floatLabel="never"  appearance="outline">
+          <input type="text" placeholder="Filter by desk, area or comment (Desk2/PSPL/abc)" matInput /> 
+        </mat-form-field> 
+      </div>
+      <div class="list-container">
+        <div *ngFor="let logDatum of logData let i = index"
+          [ngClass]="{'ws-mat-accent-background' : logDatum._id === selectedLog?._id}" (click)=loadValue(i)>
+          <div class="list-item">
+            <h4>
+              {{ logDatum.classification }}
+            </h4>
+            <span>
+              {{ logDatum.entryDate | date }}
+            </span>
+          </div>
+          <div class="list-item">
+            <span>
+              {{ logDatum.comments
+             }}
+            </span>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+    </div>
+    <div class="form">
+      <div class="banner-icon-desk">
+        <div class="icons">
+          <mat-icon class="padding-x-s mat-icon-size">refresh</mat-icon>
+          <mat-icon class="padding-x-s mat-icon-size">add</mat-icon>
+          <mat-icon class="padding-x-s mat-icon-size">save</mat-icon>
+        </div>
+
+        <span>Editing an existing log</span>
+      </div>
+      <div class="form-container ws-mat-accent-background" *ngIf="selectedLog">
+        <form>
+          <table cellspacing="0">
+            <tr>
+              <td colspan="2">
+                <mat-form-field class="long-field">
+                  <input matInput appearance="outline" type="datetime-local" placeholder="Entry Date"
+                    [(ngModel)]="selectedLog.entryDate" name="last">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field appearance="outline">
+                  <mat-label>Desk No</mat-label>
+                  <input matInput placeholder="Desk 3 Edmonton Terminal" [(ngModel)]="selectedLog.deskNo"
+                    name="deskNo" />
+                </mat-form-field>
+              </td>
+
+
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field appearance="outline">
+                  <mat-label>Facility</mat-label>
+                  <input matInput placeholder="Crude Booster Pump" [(ngModel)]="selectedLog.facility" name="facility" />
+                </mat-form-field>
+              </td>
+              <td class="custom-input">
+                <span>xyz</span>
+                <input type="text" placeholder="djfbhb" />
+                <!-- <mat-form-field appearance="outline">
+                  <mat-label>Classification</mat-label>
+                  <input matInput placeholder="No" [(ngModel)]="selectedLog.classification" name="classification" />
+                </mat-form-field> -->
+              </td>
+              <td class="padding-small">
+                <mat-form-field appearance="outline">
+                  <mat-label>Shipper</mat-label>
+                  <input matInput placeholder="P1234" [(ngModel)]="selectedLog.shipper" name="shipper" />
+                </mat-form-field>
+              </td>
+
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field appearance="outline">
+                  <mat-label>BatchID</mat-label>
+                  <input matInput placeholder="Maintenance" [(ngModel)]="selectedLog.batchId" name="batchId" />
+                </mat-form-field>
+              </td>
+              <td class="padding-small">
+                <mat-form-field appearance="outline">
+                  <mat-label>PrductID</mat-label>
+                  <input matInput placeholder="NG" [(ngModel)]="selectedLog.productId" name="productId" />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field appearance="outline">
+                  <mat-label class="ws-mat-primary-text">Flow rate</mat-label>
+                  <input matInput placeholder="P1234" [(ngModel)]="selectedLog.flowRate" name="flowRate" />
+                </mat-form-field>
+              </td>
+
+            </tr>
+            <tr>
+              <td class="padding-small">
+                <mat-form-field appearance="outline">
+                  <mat-label>Area</mat-label>
+                  <input matInput placeholder="TMPL" [(ngModel)]="selectedLog.area" name="first" />
+                </mat-form-field>
+              </td>
+              <td class="toggle-btn">
+                <span class="example-h2">Result</span>
+
+                <section class="example-section">
+                  <mat-slide-toggle class="example-margin" [color]="'primary'">
+                    Slide me!
+                  </mat-slide-toggle>
+                </section>
+
+              </td>
+              <td class="toggle-btn">
+                <span class="example-h2">Result</span>
+
+                <section class="example-section">
+                  <mat-slide-toggle class="example-margin">
+                    Slide me!
+                  </mat-slide-toggle>
+                </section>
+
+              </td>
+            </tr>
+            <tr>
+
+
+              <td colspan="3">
+                <mat-form-field appearance="outline" class="long-field">
+                  <mat-label>Comments</mat-label>
+                  <input matInput placeholder="user inputs" [(ngModel)]="selectedLog.comments" name="comments" />
+                </mat-form-field>
+
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</div>

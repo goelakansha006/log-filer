@@ -1,0 +1,25 @@
+<app-app-nav-bar *ngIf="isLoggedIn" [deskName]="selected" [userName]="userName">
+
+</app-app-nav-bar>
+<div class="user-input" *ngIf="!isLoggedIn">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="User Name" [(ngModel)]="userName">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input type="password" matInput placeholder="Password" [(ngModel)]="password">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Desk Selection</mat-label>
+    <mat-select [(ngModel)]="selected">
+      <mat-option *ngFor="let desk of deskValues" [value]="desk">{{ desk }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <a class="primary" mat-raised-button type="button" (click)="login()">Login</a>
+</div>
+
+<div *ngIf="isLoggedIn">
+  <router-outlet></router-outlet>
+</div>

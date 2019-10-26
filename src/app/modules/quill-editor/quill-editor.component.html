@@ -1,0 +1,5 @@
+<ng-container>
+    <quill-editor
+    class="quill-editor"[ngModel]="htmlText"(OnContentChanged)="onContentChanged($event)"
+    [required]="true" [minLength]="minLength" #editor="ngModel"></quill-editor>
+</ng-container>

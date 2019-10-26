@@ -1,0 +1,209 @@
+<div class="page-container">
+
+  <div class="main-content">
+    <div class="gallery">
+      <div class="search-box">
+        <mat-icon class="mat-icon-size" matSuffix>search</mat-icon> 
+        <mat-form-field  class="search-bar" floatLabel="never" appearance="fill">
+          <input type="text" placeholder="Filter by desk, area or comment (Desk2/PSPL/abc)" matInput
+            [formControl]="searchControl" #search /> 
+        </mat-form-field> 
+      </div>
+      <div class="list-container">
+        <ng-container *ngIf="searchResult.length">
+          <div *ngFor="let logDatum of searchResult let i = index" class="list-items"
+            [ngClass]="{'ws-mat-primary-lite-background' : logDatum._id === selectedLog?._id}" (click)=loadValue(i)>
+            <div class="list-item">
+              <h4>
+                {{ logDatum.classification }}
+              </h4>
+              <span>
+                {{ logDatum.entryDate | date }}
+              </span>
+            </div>
+            <div class="list-item">
+              <p class="title-text">
+                {{ logDatum.comments
+             }}
+              </p>
+              <mat-icon>keyboard_arrow_right</mat-icon>
+            </div>
+            <mat-divider></mat-divider>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!searchResult.length">
+          <div *ngFor="let logDatum of logData let i = index" class="list-items"
+            [ngClass]="{'ws-mat-primary-lite-background' : logDatum._id === selectedLog?._id}" (click)=loadValue(i)>
+            <div class="list-item">
+              <h4>
+                {{ logDatum.classification }}
+              </h4>
+              <span>
+                {{ logDatum.entryDate | date }}
+              </span>
+            </div>
+            <div class="list-item">
+              <p class="title-text">
+                {{ logDatum.comments
+             }}
+              </p>
+              <mat-icon>keyboard_arrow_right</mat-icon>
+            </div>
+            <mat-divider></mat-divider>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="form ws-mat-primary-lite-background">
+      <div class="form-container">
+        <div class="form-subMenu">
+          <div class="system-report-heading">
+            <mat-icon class="padding-4">calendar_today</mat-icon>
+            <span class="ws-mat-primary-text mat-h2 mat-title margin-zero padding-4">System Reports</span>
+          </div>
+          <div class="icons ">
+            <button mat-icon-button aria-label="Home button" (click)=refreshData()>
+              <mat-icon>refresh</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Home button" (click)=createRecord(selectedLog)>
+              <mat-icon>add</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Home button" (click)=updateData(selectedLog)>
+              <mat-icon>save</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="form-container" *ngIf="selectedLog">
+          <form>
+            <table cellspacing="0">
+              <tr>
+                <td colspan="2">
+                  <mat-form-field class="long-field">
+                    <input matInput appearance="fill" type="datetime-local" placeholder="Entry Date"
+                      [value]="selectedLog.entryDate" name="last">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Desk No</mat-label>
+                    <mat-select [value]="selectedLog.deskNo" [required]="true">
+                      <mat-option *ngFor="let desk of deskData" [value]="desk">
+                        {{desk}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+
+
+
+              </tr>
+              <tr>
+                <td>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Area</mat-label>
+                    <mat-select [value]="selectedLog.area" [required]="true">
+                      <mat-option *ngFor="let area of areaData" [value]="area">
+                        {{area}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+
+                </td>
+                <td>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Facility</mat-label>
+                    <mat-select [value]="selectedLog.facility">
+                      <mat-option *ngFor="let facility of facilityData" [value]="facility">
+                        {{facility}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+                <td>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Classification</mat-label>
+                    <mat-select [value]="selectedLog.classification" [required]="true">
+                      <mat-option *ngFor="let classification of classificationData" [value]="classification">
+                        {{classification}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+
+
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field appearance="fill">
+                    <mat-label>BatchID</mat-label>
+                    <input matInput placeholder="Maintenance" [(ngModel)]="selectedLog.batchId" name="batchId" />
+                  </mat-form-field>
+                </td>
+                <td class="padding-small">
+                  <mat-form-field appearance="fill">
+                    <mat-label>PrductID</mat-label>
+                    <input matInput placeholder="NG" [(ngModel)]="selectedLog.productId" name="productId" />
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field appearance="fill">
+                    <mat-label class="ws-mat-primary-text">Flow rate</mat-label>
+                    <input matInput placeholder="P1234" [(ngModel)]="selectedLog.flowRate" name="flowRate" />
+                  </mat-form-field>
+                </td>
+
+              </tr>
+              <tr>
+                <td class="padding-small">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Shipper</mat-label>
+                    <input matInput placeholder="P1234" [(ngModel)]="selectedLog.shipper" name="shipper" />
+                  </mat-form-field>
+                </td>
+                <td class="toggle-btn">
+                  <span class="example-h2">Add to daily status</span>
+
+                  <section class="example-section">
+                    <mat-slide-toggle class="example-margin" [color]="'primary'"
+                      [checked]="selectedLog.isAddToQualityStatus === true ? true : false">
+                      NO
+                    </mat-slide-toggle>
+                  </section>
+
+                </td>
+                <td class="toggle-btn">
+                  <span class="example-h2">Add to Shift turnover</span>
+
+                  <section class="example-section">
+                    <mat-slide-toggle class="example-margin" [color]="'primary'"
+                      [checked]="selectedLog.isHeavy === true ? true : false">
+                      NO
+                    </mat-slide-toggle>
+                  </section>
+
+                </td>
+              </tr>
+              <tr>
+
+
+                <td colspan="3">
+                  <mat-form-field appearance="fill" class="long-field">
+                    <mat-label>Comments</mat-label>
+                    <textarea matInput placeholder="user inputs" [required]="true" [(ngModel)]="selectedLog.comments"
+                      name="comments" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+                  </mat-form-field>
+
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

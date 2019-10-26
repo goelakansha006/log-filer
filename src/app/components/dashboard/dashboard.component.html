@@ -1,0 +1,34 @@
+<div class="page-container">
+
+
+  <div class="login-successful">
+    <mat-icon class="big-icon" [color]="'primary'">done</mat-icon>
+    <h4 class="ws-mat-primary-text mat-display-1">Login successful</h4>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="container">
+      <a mat-button class="dot" [routerLink]="'/app/createLogs'">
+        <span class="heading-app">System logs</span>
+      </a>
+    </div>
+    <div class="container"><a mat-button class="dot" [routerLink]="'/app/daily-report'">
+        <span class="heading-app">Daily status reports</span>
+      </a></div>
+
+    <div class="container"><a mat-button class="dot" [routerLink]="'/app/admin'">
+        <span class="heading-app">Equipment Failure</span>
+      </a></div>
+
+    <div class="container"><a mat-button class="dot" [routerLink]="'/app/shift-log'">
+        <span class="heading-app">Shift turnover checks</span>
+      </a></div>
+
+    <div class="container"><a mat-button class="dot" [routerLink]="'/app/fatigue'">
+        <span class="heading-app">Leak alarm analysis</span>
+      </a></div>
+    <div class="container"><a mat-button class="dot" [routerLink]="'/app/graphs'">
+        <span class="heading-app">Dashboard</span>
+      </a></div>
+  </div>
+</div>

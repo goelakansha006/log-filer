@@ -1,0 +1,29 @@
+<mat-toolbar class="banner-icon-desk mat-elevation-z1">
+  <div class="icons">
+    <a>
+      <img src="\assets\logo.png" class="app-logo" alt="app-logo" />
+    </a>
+    <button mat-icon-button aria-label="Home button" [routerLink]="'/app/dashboard'">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Home button" [routerLink]="'/app/table'">
+      <mat-icon>trending_up</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Home button" [routerLink]="'/app/dashboard'">
+      <mat-icon>format_list_bulleted</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Home button" [routerLink]="'/app/search'">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+  <div class="user-details">
+
+    <mat-icon class="user-image">person</mat-icon>
+    <div class="user-avatar">
+      <h2 class="mat-h2 mat-title ws-mat-primary-text">{{userName}}</h2>
+      <h4 class=".mat-h4 mat-subheading-1 ws-mat-primary-text">{{deskName}}</h4>
+
+    </div>
+    <span></span>
+  </div>
+</mat-toolbar>

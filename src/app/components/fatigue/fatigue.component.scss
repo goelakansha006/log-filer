@@ -1,0 +1,41 @@
+table {
+  width: 100%;
+}
+
+table,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 0 16px 0 16px;
+}
+
+.page-container {
+  margin: 16px 36px 0px 36px;
+  box-sizing: border-box;
+  padding: 16px 0px 0px 36px;
+}
+
+.grey-color {
+  background-color: #584f3e
+}
+
+.transparent-color {
+  background-color: #9f937d
+}
+
+.yellow-color {
+  background-color: #f4d600
+}
+
+.light-green {
+  background-color: #aca76f
+}
+
+.dark-green {
+  background-color: #636a34
+}
+
+.white {
+  background-color: #ffffff
+}

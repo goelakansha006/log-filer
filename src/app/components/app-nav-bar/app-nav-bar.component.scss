@@ -1,0 +1,39 @@
+.button {
+  margin: 0px 16px 0px 16px
+}
+
+.app-logo {
+  max-height: 40px;
+}
+
+.banner-icon-desk {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 56px;
+
+  .icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .user-image {
+    height: 100%;
+    width: auto;
+    font-size: 46px;
+
+  }
+
+  .user-details {
+    display: flex;
+    align-items: center;
+
+
+
+    .user-avatar {
+      padding: 0 2px;
+      flex-direction: column;
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<ng-container class="page-container">
+  <form>
+    <table cellspacing="0">
+      <tr>
+        <th>Desk No</th>
+        <th>Area</th>
+        <th>Facility</th>
+        <th>Comments</th>
+        <th>Classification</th>
+        <th>Entry Date</th>
+        <th>Operator</th>
+      </tr>
+      <tr *ngFor="let tableData of shiftLogs">
+        <td>
+          {{tableData.deskNo}}
+        </td>
+        <td>
+          {{tableData.area}}
+        </td>
+        <td>
+          {{tableData.facility}}
+        </td>
+        <td>
+          {{tableData.comments}}
+        </td>
+        <td>
+          {{tableData.classification}}
+        </td>
+        <td>
+          {{tableData.entryDate}}
+        </td>
+        <td>
+          {{tableData.operator}}
+        </td>
+
+
+      </tr>
+    </table>
+  </form>
+
+</ng-container>

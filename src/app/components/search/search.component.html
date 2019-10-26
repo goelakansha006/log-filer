@@ -1,0 +1,155 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!-- <h1 class="example-app-name">Responsive App</!-->
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+      <div class="filter-class">
+        <h1 class="mat-display-h3">Filters</h1>
+        <div>
+
+        </div>
+      </div>
+      <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Entry Dates
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+          <section class="column-checkbox">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker1" placeholder="Choose a start date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+
+
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker3" placeholder="Choose an end date">
+              <mat-datepicker-toggle matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #picker3></mat-datepicker>
+            </mat-form-field>
+          </section>
+
+
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle *ngIf="deskData.length">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Desks
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+
+          <section class="column-checkbox" *ngFor="let deskDatum of deskData">
+            <mat-checkbox class="example-margin">{{deskDatum}}</mat-checkbox>
+          </section>
+
+
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle *ngIf="areaData.length">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Area
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+
+          <section class="column-checkbox" *ngFor="let areaDatum of areaData">
+            <mat-checkbox class="example-margin">{{areaDatum}}</mat-checkbox>
+          </section>
+
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle *ngIf="classificationData.length">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Classification
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <section class="column-checkbox" *ngFor="let classifcationDautm of classificationData">
+            <mat-checkbox>{{classifcationDautm}}</mat-checkbox>
+          </section>
+
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle *ngIf="facilityData.length">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Facility
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+
+          <section class="column-checkbox" *ngFor="let facilityDatum of facilityData">
+            <mat-checkbox class="example-margin">{{facilityDatum}}</mat-checkbox>
+          </section>
+
+
+        </mat-expansion-panel>
+
+      </mat-accordion>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content-class">
+      <form>
+        <table cellspacing="0">
+          <tr>
+            <th>Desk No</th>
+            <th>Area</th>
+            <th>Facility</th>
+            <th>Comments</th>
+            <th>Classification</th>
+            <th>Entry Date</th>
+            <th>Operator</th>
+          </tr>
+          <tr *ngFor="let tableData of searchData">
+            <td>
+              {{tableData.deskNo}}
+            </td>
+            <td>
+              {{tableData.area}}
+            </td>
+            <td>
+              {{tableData.facility}}
+            </td>
+            <td>
+              {{tableData.comments}}
+            </td>
+            <td>
+              {{tableData.classification}}
+            </td>
+            <td>
+              {{tableData.equipment}}
+            </td>
+            <td>
+              {{tableData.operator}}
+            </td>
+
+          </tr>
+        </table>
+      </form>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

@@ -1,0 +1,10 @@
+{
+    "adalConfig": {
+        "clientId": "73377ef2-77eb-4048-9e95-169724ce6d06",
+        "tenant": "17ba348f-4e10-4a93-a36c-6a70a227662b",
+        "cacheLocation": "localStorage",
+        "endpoints": {
+            "api": "73377ef2-77eb-4048-9e95-169724ce6d06"
+        }
+    }
+}

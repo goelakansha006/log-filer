@@ -1,0 +1,154 @@
+.page-container {
+  margin: 0px 36px 0px 36px;
+  box-sizing: border-box;
+
+
+
+  .margin-zero {
+    margin: 0 !important;
+  }
+
+  .padding-4 {
+    padding: 0 16px;
+  }
+
+
+
+
+  .main-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+
+
+
+    .gallery {
+      width: 36%;
+      margin-top: 16px;
+
+
+
+      .search-box {
+        display: flex;
+        align-items: center;
+        min-height: 56px;
+
+        .search-bar {
+          width: 100%;
+        }
+
+
+
+
+      }
+
+
+
+      .list-container {
+        overflow: auto;
+
+        height: calc(100vh - 166px);
+
+        h4 {
+          margin: 0px !important;
+        }
+
+
+        .list-items {
+          padding: 8px 16px 8px 16px;
+          display: flex;
+          align-items: center;
+        }
+
+        .list-item-individual {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        $comment-line-Count: 1;
+        $comment-height-size:1.3em;
+
+        .title-text {
+          position: relative;
+          overflow: hidden;
+          line-height: 1.3em;
+          height: $comment-line-Count * $comment-height-size;
+        }
+
+
+      }
+    }
+
+    .form {
+      width: 62%;
+      margin-top: 16px;
+
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .form-subMenu {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .system-report-heading {
+        display: flex;
+        align-items: center;
+      }
+
+      td {
+        padding: 0 16px;
+      }
+
+      .icons {
+        min-height: 56px;
+        padding: 16px 16px 0px 16px;
+        float: right;
+      }
+
+      .mat-form-override {
+        width: 160px !important;
+      }
+
+      .long-field {
+        width: 100%;
+      }
+
+      .toggle-btn {
+        vertical-align: baseline !important;
+        padding-left: 8px !important;
+      }
+
+      .comment-box {
+        width: 400px;
+      }
+
+      .form-container {
+        padding: 16px;
+      }
+    }
+  }
+
+
+}
+
+.name-initials-image {
+  border-radius: 50%;
+  padding: 4px;
+  box-sizing: border-box;
+  width: 40px;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid gray;
+}
