@@ -3,8 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
+  production: false,
   apiUrl: 'http://localhost:3000'
+  // production : true
+  // apiUrl: 'https://row-spark.herokuapp.com/'
 };
 
 /*

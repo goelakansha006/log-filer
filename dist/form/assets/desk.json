@@ -1,0 +1,50 @@
+{
+  "desk1": [{
+    "area": "TMPL",
+    "facility": "Edmonton",
+    "powerAppsId": "4FK631az8uA"
+  }, {
+    "area": "TMPL",
+    "facility": "Gainford",
+    "powerAppsId": "hf2un6tpIFU"
+  }],
+  "desk2": [{
+    "area": "PSPL",
+    "facility": "Sumas",
+    "powerAppsId": "6cTeO7q6g2o"
+  }, {
+    "area": "PSPL",
+    "facility": "Anacortes",
+    "powerAppsId": "MNyGWUUZN7I"
+  }],
+  "desk3": [{
+    "area": "WR",
+    "facility": "Westridge",
+    "powerAppsId": "QPFdXppr4u4"
+  }],
+  "desk4": [{
+    "area": "ET",
+    "facility": "Edmonton Terminal",
+    "powerAppsId": "BTQ5tvqAt5M"
+  }],
+  "desk5": [{
+    "area": "ET2",
+    "facility": "Edmonton Terminal 2",
+    "powerAppsId": "0vAfgMauQLM"
+  }],
+  "desk6": [{
+    "area": "N40",
+    "facility": "North 40",
+    "powerAppsId": "Z0TGl7BlTjI"
+  }],
+  "desk7": [{
+    "area": "BTT",
+    "facility": "Baseline",
+    "powerAppsId": "kM9M9HVJgbU"
+  }],
+  "desk8": [{
+    "area": "Dev",
+    "facility": "Trainer",
+    "powerAppsId": "UhkrbTs-Ppg"
+  }]
+}
