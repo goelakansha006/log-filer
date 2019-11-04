@@ -5,8 +5,9 @@ import { ILogData } from '../models/microsoft-auth.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ICategorize } from '../models/categorize.model';
-import { IIdObject } from '../models/login.model';
+import { IIdObject, IUserObject } from '../models/login.model';
 
+const API_URL_LOGIN = environment.apiUrlLogin;
 const API_URL = environment.apiUrl;
 
 @Injectable({
@@ -20,7 +21,6 @@ export class AppService {
   }
 
   public searchResults(query: string): Observable<any> {
-
     return this.http.get<any>(
       `${API_URL}/search?startDate=2019-09-15&endDate=2019-09-25&query=${query}`
     );
@@ -56,5 +56,10 @@ export class AppService {
 
   public getValues(distinctBy: string) {
     return this.http.get<string[]>(`${API_URL}/getDistinct?query=${distinctBy}`);
+  }
+
+  public login(userData: IUserObject) {
+    console.log('REached');
+    return this.http.post(`${API_URL_LOGIN}/user/login`, userData);
   }
 }

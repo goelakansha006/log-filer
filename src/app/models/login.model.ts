@@ -6,3 +6,8 @@ export interface IDeskObject {
 export interface IIdObject {
   _id: IDeskObject;
 }
+
+export interface IUserObject {
+  username : string,
+  password: string
+}

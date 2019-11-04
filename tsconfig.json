@@ -5,6 +5,7 @@
     "outDir": "./dist/form",
     "sourceMap": true,
     "declaration": false,
+    "emitDecoratorMetadata": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "module": "esnext",

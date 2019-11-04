@@ -33,13 +33,23 @@ export class RootComponent implements OnInit {
   }
 
   login() {
-    if (this.userName === 'user1' && this.password === 'passw0rd') {
-      this.snackBar.open('Login Successful');
+    console.log('CLICKED');
+    if (this.userName && this.password) {
+      this.appSvc.login({ username: this.userName, password: this.password }).subscribe(data => {
+        console.log('DATa: ', data);
+        this.snackBar.open('Login Successful');
       this.isLoggedIn = true;
       this.route.navigate(['/app/dashboard']);
-    } else {
-      this.snackBar.open('Login Failed');
-      this.isLoggedIn = false;
+      });
     }
+    //   this.deskWithArea = data;;
+    // if (this.userName === 'user1' && this.password === 'passw0rd') {
+    //   this.snackBar.open('Login Successful');
+    //   this.isLoggedIn = true;
+    //   this.route.navigate(['/app/dashboard']);
+    // } else {
+    //   this.snackBar.open('Login Failed');
+    //   this.isLoggedIn = false;
+    // }
   }
 }

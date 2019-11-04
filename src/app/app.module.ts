@@ -17,7 +17,7 @@ import {
   MatAutocompleteModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS
 } from '@angular/material';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardResolver } from './resolvers/dashboard-resolver.service';
 import { TableComponent } from './components/table/table.component';
 import { GraphsComponent } from './components/graphs/graphs.component';
@@ -29,6 +29,7 @@ import { DailyReportResolver } from './resolvers/daily-status-resolver.service';
 import { ShiftTurnoverComponent } from './components/shift-turnover/shift-turnover.component';
 import { ShiftResolver } from './resolvers/shift-resolver.service';
 import { AdminComponent } from './components/admin/admin.component';
+import { AuthInterceptor } from './services/auth.inspector';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,11 @@ import { AdminComponent } from './components/admin/admin.component';
     {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
       useValue: { duration: 2000 }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
     },
     DashboardResolver,
     DailyReportResolver,
