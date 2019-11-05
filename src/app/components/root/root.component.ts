@@ -35,12 +35,14 @@ export class RootComponent implements OnInit {
   login() {
     console.log('CLICKED');
     if (this.userName && this.password) {
-      this.appSvc.login({ username: this.userName, password: this.password }).subscribe(data => {
-        console.log('DATa: ', data);
-        this.snackBar.open('Login Successful');
-      this.isLoggedIn = true;
-      this.route.navigate(['/app/dashboard']);
-      });
+      this.appSvc
+        .login({ username: this.userName, password: this.password })
+        .subscribe((data: any) => {
+          document.cookie = `x-access-token=${data.token}`;
+          this.snackBar.open('Login Successful');
+          this.isLoggedIn = true;
+          this.route.navigate(['/app/dashboard']);
+        });
     }
     //   this.deskWithArea = data;;
     // if (this.userName === 'user1' && this.password === 'passw0rd') {
