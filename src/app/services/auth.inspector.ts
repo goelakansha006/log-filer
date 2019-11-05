@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log('a', 'Reached');
     const cookie = this.getCookies();
     if (cookie) {
       request = request.clone({
